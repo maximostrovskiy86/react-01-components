@@ -1,37 +1,35 @@
-import style from './Profile.module.css';
+import {Container, Description, Stats, Quantity, Label} from './Profile.styled';
 
-const Profile =  props  => {
-    const {name, avatar, location,  tag} = props;
-    const {followers, views, likes } = props.stats;
+const Profile = props => {
+    const {username, avatar, location, tag} = props;
+    const {followers, views, likes} = props.stats;
 
     return (
-        <div className={style.profile}>
-            <div className={style.description}>
+        <Container>
+            <Description>
                 <img
                     src={avatar}
-                    alt={name}
-                    className={style.avatar}
+                    alt={username}
                 />
-                <p className={style.h2}>{name}</p>
-                <p className={style.tag}>@{tag}</p>
-                <p className="location">{location}</p>
-            </div>
-
-            <ul className={style.stats}>
-                <li className={style.item}>
-                    <span className="label">Followers</span>
-                    <span className="quantity">{followers}</span>
+                <h1>{username}</h1>
+                <p>@{tag}</p>
+                <p>{location}</p>
+            </Description>
+            <Stats>
+                <li>
+                    <Label>Followers</Label>
+                    <Quantity>{followers}</Quantity>
                 </li>
-                <li className={style.item}>
-                    <span className="label">Views</span>
-                    <span className="quantity">{views}</span>
+                <li>
+                    <Label>Views</Label>
+                    <Quantity>{views}</Quantity>
                 </li>
-                <li className={style.item}>
-                    <span className="label">Likes</span>
-                    <span className="quantity">{likes}</span>
+                <li>
+                    <Label>Likes</Label>
+                    <Quantity>{likes}</Quantity>
                 </li>
-            </ul>
-        </div>
+            </Stats>
+        </Container>
     )
 }
 
