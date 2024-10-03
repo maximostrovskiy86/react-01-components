@@ -1,4 +1,6 @@
 import {Container, Description, Stats, Quantity, Label} from './Profile.styled';
+import PropTypes from 'prop-types';
+
 
 const Profile = props => {
     const {username, avatar, location, tag} = props;
@@ -31,6 +33,18 @@ const Profile = props => {
             </Stats>
         </Container>
     )
+}
+
+Profile.propTypes = {
+    username: PropTypes.string,
+    avatar: PropTypes.string,
+    location: PropTypes.string,
+    tag: PropTypes.string,
+    stats: PropTypes.shape({
+        followers: PropTypes.number,
+        likes: PropTypes.number,
+        views: PropTypes.number,
+    })
 }
 
 export default Profile;
